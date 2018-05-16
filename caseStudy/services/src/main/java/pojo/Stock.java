@@ -25,17 +25,29 @@ public class Stock {
     // TODO - Think back to your modelling session
     // Define the attributes of a stock price based on the
     // provided data in resources/data
+    private String name;
+    private HashTree<String, Integer> dailyClosePrice;
+
+    public Stock(String name, HashTree<String, Integer> prices) {
+        this.name = name;
+        dailyClosePrice = prices;
+    } 
 
     // TODO - add getter and setter methods for your attributes
 
-    private String stockTicker;
-    private HashMap<String, Integer> stockValues;
-
-
-    public Stock(String stockTicker) {
-        this.stockTicker = stockTicker;
-        stockValues = new HashTree<String, Integer>();
+    public String get_name() {
+        return this.name;
     }
 
-    public void insertStockValueDay() {}
+    public HashTree<String, Integer> get_prices() {
+        return this.dailyClosePrice;
+    }
+
+    public void set_name(String name) {
+        this.name = name;
+    }
+
+    public void set_prices(HashTree<String, Integer> prices) {
+        dailyClosePrice = prices;
+    }
 }

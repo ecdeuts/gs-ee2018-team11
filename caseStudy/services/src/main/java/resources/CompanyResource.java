@@ -17,10 +17,25 @@
 package resources;
 
 // TODO - add your @Path here
+@Path("company")
 public class CompanyResource {
     // Conglomeration of all company data here? 
 
     // TODO - Add a @GET resource to get company data
+    @GET
+    @Path("stockTicker/{stockTicker}")
+    @Produces(MediaType.APPLICATION_JSON)
     // Your service should return data for a given stock ticker
+    public List<Company> getCompany(@PathParam("stockTicker") String ticker) throws IOException {
+        List<Company> companies = new ArrayList<>();
+        companies = FileJSONReaderCompany.getCompanies();
+
+        for (int i=0; i < companies.length; i++) {
+            if (companies[i].get_sym().equalsIgnoreCases(ticker)) {  
+                return companies[i];
+            }
+        }
+        return null;
+    }
 
 }
