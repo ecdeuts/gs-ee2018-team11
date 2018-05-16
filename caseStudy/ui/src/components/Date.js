@@ -45,7 +45,7 @@ class Date extends React.Component {
         this.props.onChange(this.state.date);
     }
 
-    handleChange(date) {
+    handleChange(dateIn) {
         /**
          * TODO
          * Set the state. Call this.props.onChange with the date argument
@@ -53,7 +53,7 @@ class Date extends React.Component {
          * own onChange prop.
          */
         this.setState({
-            date : date
+            date : dateIn
         });
       this.props.onChange(this.state.date);
         
@@ -70,13 +70,16 @@ class Date extends React.Component {
                      * This method should set the state to the date argument passed in the parameter.
                      *
                      */
+                    
                     <DatePicker
                     selected={this.state.date}
                     onChange={this.handleChange.bind(this)} />
+                    
+                }
                 
 
 
-                }
+                
                 <p><strong>{this.props.text}</strong></p>
                 <div className="date-input">
                     <p> {this.props.dateType} </p>

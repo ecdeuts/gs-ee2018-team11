@@ -31,16 +31,20 @@ class App extends React.Component{
              * TODO
              * Add state objects for the user inputs and anything else you may need to render the highchart.
              */
+            startDate : "01/01/1998",
+            endDate : "01/01/2018"
         };
 
     }
 
-    handleStartDate(date){
-        
+    handleStartDate(startDateIn){
+        this.setState({
+            startDate:startDateIn
+        })
     }
 
-    handleEndDate(date){
-        
+    handleEndDate(endDateIn){
+
     }
 
 
@@ -58,16 +62,17 @@ class App extends React.Component{
                * highchart should be displayed by changing the state of that boolean.
                * Don't forget to bind these methods!
                */
-              [   < Date onChange = "a" dateType = "Start Date" />,
-                 < Date onChange = "05/15/2018" dateType = "End Date" />
+              [   < Date onChange = {this.handleStartDate.bind(this)} dateType = "Start Date" />,
+                 < Date onChange = {this.handleEndDate.bind(this)} dateType = "End Date" />
               ]
               
               
             }
                
                 <div className="date-range">
-                <button type="button">Find Prices</button>
-                </div>
+                <p> {this.state.startDate} </p>
+                <a href={`/startDate/${this.state.endDate}/endDate/${this.state.endDate}`}> Find Prices </a>
+            </div>
               </div>
 
 
