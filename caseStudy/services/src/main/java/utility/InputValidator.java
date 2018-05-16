@@ -24,7 +24,42 @@ public class InputValidator {
     // TODO - write a method that will validate your JSON input files
 
     // TODO - write a method that will validate the inputs to the Company Resource
+   List<Company> companies = new ArrayList<Company>();
+   companies = FileJSONReaderCompany.getCompanies();
+
+   public static boolean check_name(String name) {
+       if name == null {
+           return false;
+       }
+       for (int i = 0; i < companies.length; i++) {
+           if name.equals(companies[i].get_sym() {
+               return true;
+            }
+        }
+        return false;
+    }
+
 
     // TODO - write a method that will validate the inputs to the Stock Resource
+    public static boolean check_date(String start, String end) {
+        if ((start == null) || (end == null)) {
+            return false;
+        }
 
+        String[] st = start.split("/");
+        String[] ed = end.split("/");
+
+        if ((Integer.parseInt(st[2]) != 2018) || (Integer.parseInt(ed[2]) != 2018) || (Integer.parseInt(st[2]) > Integer.parseInt(ed[2]))) {
+            return false;
+        }
+        else if (Integer.parseInt(st[0]) > Integer.parseInt(ed[0])) {
+            return false;
+        }
+        else if (Integer.parseInt(st[0]) == Integer.parseInt(ed[0])) {
+            if (Integer.parseInt(st[1]) > Integer.parseInt(ed[1])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
