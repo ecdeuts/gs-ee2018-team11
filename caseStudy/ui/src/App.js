@@ -21,6 +21,7 @@ import './style/App.css';
  * TODO:
  * Import your components
  */
+import Date from './components/Date.js';
 
 
 class App extends React.Component{
@@ -51,7 +52,9 @@ class App extends React.Component{
                * These props methods should set state and help determine if the
                * highchart should be displayed by changing the state of that boolean.
                * Don't forget to bind these methods!
-               */}
+               */
+                < Date OnChange = "01/01/1998"/>
+            }
 
                 <div className="date-range">
 
