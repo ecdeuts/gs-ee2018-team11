@@ -17,10 +17,28 @@
 package resources;
 
 // TODO - add your @Path here
+@Path("stock")
 public class StockResource {
 
     // TODO - Add a @GET resource to get stock data
+    @GET
+    @Path("stockTicker/{stockTicker}/startDat/{startDate}/endDate/{endDate}")
+    @Produces(MediaType.APPLICATION_JSON)
     // Your service should return data based on 3 inputs
     // Stock ticker, start date and end date
+    public List<Company> getCompany(@PathParam("stockTicker") String ticker, @PathParam("startDate") String startdate, @PathParam("endDate") String enddate) throws IOException, ParseException {
+        Date sd = DATEFORMAT.parse(startdate);
+        Date ed = DATEFORMAT.parse(enddate);
+        
+        List<Stock> stocks = new ArrayList<>();
+        stocks = FileJSONReaderStock.getStocks();
+
+        for (int i=0; i < companies.length; i++) {
+            if (companies[i].get_sym().equalsIgnoreCases(ticker)) {  
+                return companies[i];
+            }
+        }
+        return null;
+    }
 
 }
