@@ -16,13 +16,14 @@
 
 import React from 'react';
 import './style/App.css';
+import tdata from './data/data.json';
 
 /**
  * TODO:
  * Import your components
  */
 import Date from './components/Date.js';
-
+import LineChart from './components/charts/LineChart';
 
 class App extends React.Component{
     constructor(props) {
@@ -32,18 +33,28 @@ class App extends React.Component{
              * TODO
              * Add state objects for the user inputs and anything else you may need to render the highchart.
              */
+            startDate : "01/01/1998",
+            endDate : "01/01/2018"
         };
 
     }
 
+    handleStartDate(startDateIn){
+        this.setState({
+            startDate:startDateIn
+        })
+    }
 
+    handleEndDate(endDateIn){
 
+    }
 
 
     render () {
       return (
           <div className="page-display">
               <div className="input">
+             
               {/**
                * TODO
                * Render the StockTicker and Date components. You can use the date component twice
@@ -53,12 +64,18 @@ class App extends React.Component{
                * highchart should be displayed by changing the state of that boolean.
                * Don't forget to bind these methods!
                */
-                < Date OnChange = "01/01/1998"/>
+              [   < Date onChange = {this.handleStartDate.bind(this)} dateType = "Start Date" />,
+                 < Date onChange = {this.handleEndDate.bind(this)} dateType = "End Date" />
+              ]
+               
             }
-
+               
                 <div className="date-range">
-
+                <p> {this.state.startDate} </p>
+                <a href={`/startDate/${this.state.endDate}/endDate/${this.state.endDate}`}> Find Prices </a>
+                <button type="button">Find Prices</button>
                 </div>
+                <LineChart data={tdata.data} />
               </div>
 
 

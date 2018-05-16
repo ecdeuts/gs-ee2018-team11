@@ -20,49 +20,80 @@ import Highcharts from 'highcharts';
 class LineChart extends React.Component {
     constructor(props) {
         super(props);
-    }
+        this.highchartOptions = {
+            title: {
+                text: 'Stock Price'
+            },
+            xAxis: {
+                title: {
+                    text: 'Date'
+                }
+            },
+            yAxis: { 
+                title: {
+                    text: 'Price'
+                }
+            },
+            series: [{
+                name: "Prices",
+                data: this.props.data}]
+            }
+            // legend: {
+            //     layout: 'vertical',
+            //     align: 'right',
+            //     verticalAlign: 'middle'
+            // },
+            // plotOptions: {
+            //     series: {
+            //         label: {
+            //             connectorAllowed: false
+            //         },
+            //     }
+            // },
+            // responsive: {
+            //     rules: [{
+            //         condition: {
+            //             maxWidth: 500
+            //         },
+            //         chartOptions: {
+            //             legend: {
+            //                 layout: 'horizontal',
+            //                 align: 'center',
+            //                 verticalAlign: 'bottom'
+            //             }
+            //         }
+            //     }]
+            }
 
     componentDidMount() {
-/*        Highcharts.chart('chart', {
-
-            TODO
-            Create a highcharts line chart of your choosing (e.g. https://www.highcharts.com/demo/line-time-series for a demo).
-
-            series: [{
-                name: 'Prices',
-                data: this.props.data
-            }]
-        });
-*/
+        Highcharts.chart('chart', this.highchartsOptions);
     }
-
-    componentWillReceiveProps(props) {
-        console.log("New data received to redraw chart.");
+    // componentWillReceiveProps(props) {
+    //     console.log("New data received to redraw chart.");
         
-        /**
-         * TODO
-         * Parse the data received from props, a Javascript object, to map to a Javascript array
-         * required by the type of line chart chosen and set it in the series. Use Date.UTC(..)
-         * to create the x-axis.
-         */
+    //     /**
+    //      * TODO
+    //      * Parse the data received from props, a Javascript object, to map to a Javascript array
+    //      * required by the type of line chart chosen and set it in the series. Use Date.UTC(..)
+    //      * to create the x-axis.
+    //      */
         
-        /**
-         * TODO
-         * Uncomment the line below to pass the data be displayed to the series
-         * this.chart.series[0].setData(data);
-         */
-    }
+    //     /**
+    //      * TODO
+    //      * Uncomment the line below to pass the data be displayed to the series
+    //      * this.chart.series[0].setData(data);
+    //      */
+    // }
 
-    componentWillUnmount() {
-        this.chart.destroy();
-    }
+    // componentWillUnmount() {
+    //     this.chart.destroy();
+    // }
 
 
     render() {
-        return (
-            <div id='chart'></div>
-        )
+        return <div id='chart'></div>
+        }
     }
-}
 
 // Don't forget to export your component!
+export default LineChart;
