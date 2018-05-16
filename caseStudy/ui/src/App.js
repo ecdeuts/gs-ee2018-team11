@@ -23,6 +23,7 @@ import tdata from './data/data.json';
  * Import your components
  */
 import Date from './components/Date.js';
+import LineChart from './components/charts/LineChart';
 
 class App extends React.Component{
     constructor(props) {
@@ -70,15 +71,11 @@ class App extends React.Component{
             }
                
                 <div className="date-range">
-<<<<<<< HEAD
                 <p> {this.state.startDate} </p>
                 <a href={`/startDate/${this.state.endDate}/endDate/${this.state.endDate}`}> Find Prices </a>
-            </div>
-=======
                 <button type="button">Find Prices</button>
                 </div>
                 <LineChart data={tdata.data} />
->>>>>>> 063012c1acaf4f5f4b8de797b9d05bc592e484fe
               </div>
 
 
