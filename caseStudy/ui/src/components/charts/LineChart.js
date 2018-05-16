@@ -20,10 +20,7 @@ import Highcharts from 'highcharts';
 class LineChart extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-           Highcharts.chart('chart', {
+        this.highchartOptions = {
             title: {
                 text: 'Stock Price'
             },
@@ -37,68 +34,65 @@ class LineChart extends React.Component {
                     text: 'Price'
                 }
             },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                }
-            },
-
             series: [{
-                name: 'Prices',
-                data: this.props.data
-            },],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
+                name: "Prices",
+                data: this.props.data}]
             }
-        });
-    }
+            // legend: {
+            //     layout: 'vertical',
+            //     align: 'right',
+            //     verticalAlign: 'middle'
+            // },
+            // plotOptions: {
+            //     series: {
+            //         label: {
+            //             connectorAllowed: false
+            //         },
+            //     }
+            // },
+            // responsive: {
+            //     rules: [{
+            //         condition: {
+            //             maxWidth: 500
+            //         },
+            //         chartOptions: {
+            //             legend: {
+            //                 layout: 'horizontal',
+            //                 align: 'center',
+            //                 verticalAlign: 'bottom'
+            //             }
+            //         }
+            //     }]
+            }
 
-    componentWillReceiveProps(props) {
-        console.log("New data received to redraw chart.");
-        
-        /**
-         * TODO
-         * Parse the data received from props, a Javascript object, to map to a Javascript array
-         * required by the type of line chart chosen and set it in the series. Use Date.UTC(..)
-         * to create the x-axis.
-         */
-        
-        /**
-         * TODO
-         * Uncomment the line below to pass the data be displayed to the series
-         * this.chart.series[0].setData(data);
-         */
+    componentDidMount() {
+        Highcharts.chart('chart', this.highchartsOptions);
     }
+    // componentWillReceiveProps(props) {
+    //     console.log("New data received to redraw chart.");
+        
+    //     /**
+    //      * TODO
+    //      * Parse the data received from props, a Javascript object, to map to a Javascript array
+    //      * required by the type of line chart chosen and set it in the series. Use Date.UTC(..)
+    //      * to create the x-axis.
+    //      */
+        
+    //     /**
+    //      * TODO
+    //      * Uncomment the line below to pass the data be displayed to the series
+    //      * this.chart.series[0].setData(data);
+    //      */
+    // }
 
-    componentWillUnmount() {
-        this.chart.destroy();
-    }
+    // componentWillUnmount() {
+    //     this.chart.destroy();
+    // }
 
 
     render() {
-        return (
-            <div id='chart'></div>
-        )
+        return <div id='chart'></div>
+        }
     }
-}
 
 // Don't forget to export your component!
