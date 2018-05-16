@@ -27,9 +27,9 @@ public class Company {
     // provided data in resources/data
     private String symbol;
     private String name;
-    private String hqCity;
-    private String hqStateOrCountry;
-    private int number_of_employee;
+    private String headquartersCity;
+    private String headquartersStateOrCountry;
+    private int numberOfEmployees;
     private String sector;
     private String industry;
     
@@ -37,9 +37,9 @@ public class Company {
     public Company(String sym, String name, String hqC,String hqSC, int number, String sec, String indus){
             symbol=sym;
             this.name=name;
-            hqCity=hqC;
-            hqStateOrCountry=hqSC;
-            number_of_employee=number;
+            headquartersCity=hqC;
+            headquartersStateOrCountry=hqSC;
+            numberOfEmployees=number;
             sector=sec;
             industry=indus;
             
@@ -91,7 +91,7 @@ public class Company {
     }
 
     public void set_number(int number) {
-        number_of_employee = number;
+        number = number_of_employee;
     }
 
     public void set_sec(String sec) {
