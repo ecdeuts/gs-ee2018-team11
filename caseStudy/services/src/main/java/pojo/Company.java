@@ -91,7 +91,7 @@ public class Company {
     }
 
     public void set_number(int number) {
-        number = number_of_employee;
+        number_of_employee = number;
     }
 
     public void set_sec(String sec) {
