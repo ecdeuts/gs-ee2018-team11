@@ -23,17 +23,53 @@ class LineChart extends React.Component {
     }
 
     componentDidMount() {
-/*        Highcharts.chart('chart', {
+           Highcharts.chart('chart', {
+            title: {
+                text: 'Stock Price'
+            },
+            xAxis: {
+                title: {
+                    text: 'Date'
+                }
+            },
+            yAxis: { 
+                title: {
+                    text: 'Price'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
 
-            TODO
-            Create a highcharts line chart of your choosing (e.g. https://www.highcharts.com/demo/line-time-series for a demo).
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                }
+            },
 
             series: [{
                 name: 'Prices',
                 data: this.props.data
-            }]
+            },],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
         });
-*/
     }
 
     componentWillReceiveProps(props) {
