@@ -16,6 +16,7 @@
 
 import React from 'react';
 import './style/App.css';
+import tdata from './data/data.json';
 
 /**
  * TODO:
@@ -65,14 +66,19 @@ class App extends React.Component{
               [   < Date onChange = {this.handleStartDate.bind(this)} dateType = "Start Date" />,
                  < Date onChange = {this.handleEndDate.bind(this)} dateType = "End Date" />
               ]
-              
-              
+               
             }
                
                 <div className="date-range">
+<<<<<<< HEAD
                 <p> {this.state.startDate} </p>
                 <a href={`/startDate/${this.state.endDate}/endDate/${this.state.endDate}`}> Find Prices </a>
             </div>
+=======
+                <button type="button">Find Prices</button>
+                </div>
+                <LineChart data={tdata.data} />
+>>>>>>> 063012c1acaf4f5f4b8de797b9d05bc592e484fe
               </div>
 
 
