@@ -26,9 +26,9 @@ public class Stock {
     // Define the attributes of a stock price based on the
     // provided data in resources/data
     private String name;
-    private HashTree<String, Integer> dailyClosePrice;
+    private HashMap<String, Integer> dailyClosePrice;
 
-    public Stock(String name, HashTree<String, Integer> prices) {
+    public Stock(String name, HashMap<String, Integer> prices) {
         this.name = name;
         dailyClosePrice = prices;
     } 
@@ -39,7 +39,7 @@ public class Stock {
         return this.name;
     }
 
-    public HashTree<String, Integer> get_prices() {
+    public HashMap<String, Integer> get_prices() {
         return this.dailyClosePrice;
     }
 
