@@ -27,4 +27,15 @@ public class Stock {
     // provided data in resources/data
 
     // TODO - add getter and setter methods for your attributes
+
+    private String stockTicker;
+    private HashMap<String, Integer> stockValues;
+
+
+    public Stock(String stockTicker) {
+        this.stockTicker = stockTicker;
+        stockValues = new HashTree<String, Integer>();
+    }
+
+    public void insertStockValueDay() {}
 }

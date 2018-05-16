@@ -18,6 +18,7 @@ package resources;
 
 // TODO - add your @Path here
 public class CompanyResource {
+    // Conglomeration of all company data here? 
 
     // TODO - Add a @GET resource to get company data
     // Your service should return data for a given stock ticker
