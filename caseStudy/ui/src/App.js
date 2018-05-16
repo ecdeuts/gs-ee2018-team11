@@ -16,6 +16,7 @@
 
 import React from 'react';
 import './style/App.css';
+import tdata from './data/data.json';
 
 /**
  * TODO:
@@ -61,13 +62,13 @@ class App extends React.Component{
               [   < Date onChange = "a" dateType = "Start Date" />,
                  < Date onChange = "05/15/2018" dateType = "End Date" />
               ]
-              
-              
+               
             }
                
                 <div className="date-range">
                 <button type="button">Find Prices</button>
                 </div>
+                <LineChart data={tdata.data} />
               </div>
 
 
