@@ -23,7 +23,6 @@ import './style/App.css';
  */
 import Date from './components/Date.js';
 
-
 class App extends React.Component{
     constructor(props) {
         super(props);
@@ -36,14 +35,20 @@ class App extends React.Component{
 
     }
 
+    handleStartDate(date){
+        
+    }
 
-
+    handleEndDate(date){
+        
+    }
 
 
     render () {
       return (
           <div className="page-display">
               <div className="input">
+             
               {/**
                * TODO
                * Render the StockTicker and Date components. You can use the date component twice
@@ -53,11 +58,15 @@ class App extends React.Component{
                * highchart should be displayed by changing the state of that boolean.
                * Don't forget to bind these methods!
                */
-                < Date OnChange = "01/01/1998"/>
+              [   < Date onChange = "a" dateType = "Start Date" />,
+                 < Date onChange = "05/15/2018" dateType = "End Date" />
+              ]
+              
+              
             }
-
+               
                 <div className="date-range">
-
+                <button type="button">Find Prices</button>
                 </div>
               </div>
 
